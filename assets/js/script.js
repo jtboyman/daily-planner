@@ -1,5 +1,7 @@
 var dailyTasks = [];
 
+$('#currentDay').text(moment().format("dddd, MMMM Do"));
+
 let loadTasks = function() {
     dailyTasks = JSON.parse(localStorage.getItem('dailyTasks'));
     if (!dailyTasks) {    
@@ -15,9 +17,9 @@ let loadTasks = function() {
             {id:8, text:""},
         ]
     };
-//figure out how to loop this
-    $.each(dailyTasks, function() {
-        
+
+    $('textarea').each(function(i) {
+        $('textarea').eq(i).val(dailyTasks[i].text);
     })
 };
 
@@ -27,11 +29,32 @@ $(".saveBtn").on("click", function() {
 
     let task = $("#"+time).children("textarea").val();
 
-    console.log(time);
-    console.log(task);
-
     dailyTasks[time].text = task;
     localStorage.setItem("dailyTasks", JSON.stringify(dailyTasks));
 });
 
+let timeCheck = function() {
+    $('.description').each(function(i) {
+
+        $(this).removeClass("past present future")
+
+        let time = moment().hour(i+9);
+
+        if (moment().isAfter(time, 'hour')) {
+            $(this).addClass("past");
+        }
+
+        else if (moment().isSame(time, 'hour')) {
+            $(this).addClass("present");
+        }
+
+        else if (moment().isBefore(time, 'hour')) {
+            $(this).addClass("future");
+        }
+    });
+}
+
 loadTasks();
+timeCheck();
+
+setInterval(timeCheck, 300000);
