@@ -1,6 +1,7 @@
 # Work Day Scheduler/Daily Planner
 
 This project utilizes jQuery and Moment.js to create a functional workday planner.
+https://jtboyman.github.io/daily-planner/
 
 ## Description
 
