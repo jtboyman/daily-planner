@@ -9,11 +9,11 @@ https://jtboyman.github.io/daily-planner/
 This project's CSS and heading were given ahead of time.
 
 ### Added Features
--Today's date appears in the header
--Text area display to input tasks
--Save task functionality so tasks reload on refresh
--CSS update for more responsive/aesthetically appealing save button
--Color-coded blocks by hour to show where you are in the day, updates automatically
+- Today's date appears in the header
+- Text area display to input tasks
+- Save task functionality so tasks reload on refresh
+- CSS update for more responsive/aesthetically appealing save button
+- Color-coded blocks by hour to show where you are in the day, updates automatically
 
 
 ## Usage
